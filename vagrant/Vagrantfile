@@ -1,0 +1,17 @@
+# ~/example.domain.com-inf/vagrant/Vagrantfile
+Vagrant.configure(2) do |config|
+  config.vm.box = "debian/jessie64"
+ 
+  # match the hiera node file from earlier
+  config.vm.hostname = "default.role.com"
+
+  config.vm.provision "shell",
+    inline: "sudo apt-get install -q -y -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold'  puppet"
+
+  config.vm.synced_folder "puppet", "/etc/puppet"
+
+  config.vm.provision "shell",
+    inline: "
+        puppet apply -dv /etc/puppet/environments/production/manifests/site.pp --confdir=/etc/puppet/ --environment=production --environmentpath=/etc/puppet/environments/
+    "
+end

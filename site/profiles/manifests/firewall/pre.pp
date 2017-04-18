@@ -29,12 +29,12 @@ class profiles::firewall::pre {
         action => 'accept',
     }
 
-    if $::vagrant == 1 {
+    # if $::vagrant == 1 {
         # Allow standard ssh if in Vagrant mode
         firewall { '004 ssh 22':
             port   => '22',
             proto  => 'tcp',
             action => 'accept',
         }
-    }
+    # }
 }

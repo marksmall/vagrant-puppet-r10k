@@ -1,0 +1,29 @@
+# ~/example.domain.com-inf/puppet-ctrl/r10k.yaml
+:cachedir: 'cache/r10k'
+
+:sources:
+  :base:
+    remote: '../'
+    basedir: 'environments'
+
+# ---
+# #
+# # r10k config file for puppet dev environment
+# #
+# # This will source from an upstream repository over SSH and deploy
+# # environments to the relative 'environments/' directory, which is available
+# # to Vagrant hosts.
+# #
+# # Optionally, the remote option below can be changed to 'control' to use the
+# # locally cloned control repository as the source.  However, housekeeping of
+# # the local clone is up to you.
+# #
+# #:cachedir: /opt/puppetlabs/puppet/cache/r10k
+# :sources:
+#   production:
+# #    remote: git@gitlab.edina.ac.uk:puppet/acgensus-control.git
+# #    remote: https://gitlab.edina.ac.uk/puppet/agcensus-control.git
+# #    remote: control-repo
+#     remote: './'
+#     basedir: './environments'
+#     prefix: false

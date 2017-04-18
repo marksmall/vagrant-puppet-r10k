@@ -1,3 +1,10 @@
 .bundle/
 bin/
 vendor/
+
+cache
+control-repo/environments
+control-repo/cache
+control-repo/etckeeper-commit-post
+control-repo/etckeeper-commit-pre
+vagrant/puppet
